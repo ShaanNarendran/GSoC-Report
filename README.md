@@ -71,7 +71,7 @@ The current way the deck picker screen shows sundecks is not user-friendly due t
 
 ## 📂 Pull Requests
 
-Here's a list of the pull requests I created during GSoC YEAR:
+Here's a list of the pull requests I created during GSoC 2026:
 
 1. [Setting up of the bottom nav class](https://github.com/ankidroid/Anki-Android/pull/21114)
 2. [Decoupling of the CardBrowserFragment from it's activity](https://github.com/ankidroid/Anki-Android/pull/21158)
