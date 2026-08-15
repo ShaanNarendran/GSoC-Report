@@ -74,7 +74,7 @@ The current way the deck picker screen shows sundecks is not user-friendly due t
 Here's a list of the pull requests I created during GSoC YEAR:
 
 1. [Setting up of the bottom nav class](https://github.com/ankidroid/Anki-Android/pull/21114)
-2. [Decoupling of the CardBrowserFragment from it's activity]((https://github.com/ankidroid/Anki-Android/pull/21158))
+2. [Decoupling of the CardBrowserFragment from it's activity](https://github.com/ankidroid/Anki-Android/pull/21158)
 3. [Adding of the more fragment destination](https://github.com/ankidroid/Anki-Android/pull/21186)
 4. [Extracting a controller for the BottomNavActivity](https://github.com/ankidroid/Anki-Android/pull/21191)
 5. [Add wiring and analytics for the BottomNavBar](https://github.com/ankidroid/Anki-Android/pull/21274)
