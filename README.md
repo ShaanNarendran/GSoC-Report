@@ -42,7 +42,6 @@ My project was related to redesigning the look and feel of the deck picker and t
 
 The bottom navigation bar redesigns the entire navigation of the app to allow users to seamlessly switch between the various destinations rather than having to open the sidebar each time. Due to the way it has been engineered, every destination saves the context wherever the user left it off in.
 
-#### Feature or screen name
 **Before:**
 <p align="center">
   <img width="1080" height="2400" alt="Screenshot_20260815_232718" src="https://github.com/user-attachments/assets/5b462609-1ac5-46ce-a7c3-d8f07535b3ed" />
