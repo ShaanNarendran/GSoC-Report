@@ -17,7 +17,7 @@
 
 ---
 
-## 🦉 Mentors
+## Mentors
 - [Sanjay Sargam]([https://www.linkedin.com/in/sanjaysargam/])
 - David Allison
 - [Ashish Yadav]([https://www.linkedin.com/in/criticalay/])
@@ -28,16 +28,16 @@
 
 ---
 
-## 📚 Organization Overview
+## Organization Overview
 
 [**AnkiDroid**](https://github.com/ankidroid) is a flashcards app that allows anyone to easily harness the power of spaced repetition and active recall to quickly study whatever material they need to. 
 
-### 🎯 **Project Goal**
+### **Project Goal**
 My project was related to redesigning the look and feel of the deck picker and the UI of the app as a whole through the introduction of various new elements like a bottom navigation bar, hierarchy lines and a new settings destination. My main goals were to translate user feedback into developable features, this involved a refactor of the existing structure to allow for the navigation bar to function as well as many iterations of design to get the best fit for the app.
 
 ---
 
-## 🚀 Project Achievements
+## Project Achievements
 
 ### 1. **Introduced the bottom navigation bar**
 
@@ -84,7 +84,7 @@ To solve this issue, I decided to create a new embedded layout that will take th
 
 ---
 
-## 📂 Pull Requests
+## Pull Requests
 
 Here's a list of the pull requests I created during GSoC 2026:
 
@@ -100,13 +100,13 @@ Here's a list of the pull requests I created during GSoC 2026:
 10. [Making the bar compatible with the current card browser](https://github.com/ankidroid/Anki-Android/pull/21499)
 ---
 
-## 💡 Outcome
+## Outcome
 
 GSoC with AnkiDroid has been one of the most rewarding experiences for me. I was able to learn so much about capturing user requirements and converting them to real features, discussions with users was taxing at times since you have to balance all the requirements, but getting a feature just right was worth it. This project has redefined the entire UI/UX for an app used by millions of students around the world and it will hopefully improve their experience and give them a little boost of motivation knowing their favorite study app is being constantly worked on by a group of amazing contributors.
 
 ---
 
-## 🔮 Future Work
+## Future Work
 
 For future work, my upcoming goals are: 
 - To implement the ability to drag decks and drop them into other decks or out of decks instead of having to manually add subdecks.
