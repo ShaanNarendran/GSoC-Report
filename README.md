@@ -18,9 +18,9 @@
 ---
 
 ## Mentors
-- [Sanjay Sargam]([https://www.linkedin.com/in/sanjaysargam/])
+- [Sanjay Sargam](https://www.linkedin.com/in/sanjaysargam/)
 - David Allison
-- [Ashish Yadav]([https://www.linkedin.com/in/criticalay/])
+- [Ashish Yadav](https://www.linkedin.com/in/criticalay/)
 
 ## Org Admins
 - David Allison
