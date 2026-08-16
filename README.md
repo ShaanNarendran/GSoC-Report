@@ -19,9 +19,10 @@
 
 ## 🦉 Mentors
 - [Sanjay Sargam]([https://www.linkedin.com/in/sanjaysargam/])
+- David Allison
 - [Ashish Yadav]([https://www.linkedin.com/in/criticalay/])
 
-# **Admins**
+# **Org Admins**
 - David Allison
 - Mike Hardy
 
@@ -40,31 +41,41 @@ My project was related to redesigning the look and feel of the deck picker and t
 
 ### 1. **Introduced the bottom navigation bar**
 
-The bottom navigation bar redesigns the entire navigation of the app to allow users to seamlessly switch between the various destinations rather than having to open the sidebar each time. Due to the way it has been engineered, every destination saves the context wherever the user left it off in.
-
+The bottom navigation bar redesigns the entire navigation of the app to allow users to seamlessly switch between the various destinations rather than having to open the sidebar each time. Due to the way it has been engineered, every destination saves the context wherever the user left it off in. The main blocker I had during proposal phase was that we have to save context between tabs and the way I accomplished this is by making sure each destination had its own standalone fragment, fragments are lightweight components that can be placed inside activities. Another big blocker was that Kotlin does not support multiple inheritance so having a main bottom nav class then subclasses under it was not a possibility so instead we went with the idea of using composition and extracted out a BottomNavController that went around this issue and allowed for the implementation to be smooth.
 **Before:**
 <p align="center">
-  <img width="1080" height="2400" alt="Screenshot_20260815_232718" src="https://github.com/user-attachments/assets/5b462609-1ac5-46ce-a7c3-d8f07535b3ed" />
-  <img width="1080" height="2400" alt="Screenshot_20260815_232742" src="https://github.com/user-attachments/assets/e899a343-cdf9-4f14-9842-7238f4b366e3" />
+  <img width="1080" height="1500" alt="Screenshot_20260815_232718" src="https://github.com/user-attachments/assets/5b462609-1ac5-46ce-a7c3-d8f07535b3ed" />
+  <img width="1080" height="1500" alt="Screenshot_20260815_232742" src="https://github.com/user-attachments/assets/e899a343-cdf9-4f14-9842-7238f4b366e3" />
 </p>
 
 **After:**
 <p align="center">
-  <img width="1080" height="2400" alt="Screenshot_20260815_160018" src="https://github.com/user-attachments/assets/691dbee1-e7c0-4914-985d-299549fd5795" />
-  After
+  <img width="1080" height="1500" alt="Screenshot_20260815_160018" src="https://github.com/user-attachments/assets/691dbee1-e7c0-4914-985d-299549fd5795" />
 </p>
 
 ### 2. **Added the new more destination**
 
-There was no place to see all the various things you could do to support the app and also tweak your account and the more destination was the perfect place to solve this problem.
+There was no place to see all the various things you could do to support the app and also tweak your account and the more destination was the perfect place to solve this problem. This destination is also a fragment and the design was set up for this after a lot of back and forth from users of the app.
 
 <img width="1080" height="2400" alt="Screenshot_20260815_232643" src="https://github.com/user-attachments/assets/79f927a9-f3d4-4ec5-8f05-2ab271d149ac" />
 
 
 ### 3. **Hierarchy Lines**
 
-The current way the deck picker screen shows sundecks is not user-friendly due to there being no indication apart from spacing to tell you what is a child of a deck. To help this, we decided to bring in hierarchy lines so that users can easily tell what deck is a child of what deck.
-<img width="1080" height="2400" alt="Screenshot_20260815_232544" src="https://github.com/user-attachments/assets/23963985-c99c-45cf-825a-876e423de8e5" />
+The current way the deck picker screen shows sundecks is not user-friendly due to there being no indication apart from spacing to tell you what is a child of a deck. To help this, we decided to bring in hierarchy lines so that users can easily tell what deck is a child of what deck. The development of this was the most taxing from a design perspective, many users had different ideas of what they wanted the lines to look like. The second challenging part about this particular feature was the performance, in collections with thousands of decks where we have to draw tens or even hundreds of lines instantly, the app can face severe performance issues. I initially had a very high complexity of around O(VN) for sibling searches but the current lookahead logic using bit masking reduced that to O(N) + O(V).
+<img width="1080" height="1500" alt="Screenshot_20260815_232544" src="https://github.com/user-attachments/assets/23963985-c99c-45cf-825a-876e423de8e5" />
+
+## 4. **Screenshot Tests**
+
+One of the main testing implementations I did was with regard to the deck picker screenshot test, this was completely new to me since it was a recent adoption to the repository. The first issue I encountered here was that with my initial implementation of the test, the bottom nav pref was not being selected consistently and so I used the exact prefs key that is used by the singleton to make sure we are turning on the pref each time. The second instance was that we were not clearing the prefs after use so screenshot tests were being commented in every PR (oops..) and the way we fixed this was to use an @After annotation then reset the pref. Finally, there were several race conditions due to the way Roboelectric's looper loops through coroutines so sometimes we were skipping deck expansions when they were supposed to happen for the tests. Fixing all of this really helped me understand how to deal with race conditions and how to better write tests in general.
+
+## 5. **Embedding the Nav Bar to the legacy card browser**
+
+This was my last PR for the project and it basically allows the nav bar to work with the card browser that is live for everyone right now. We have a new search view as a developer preference that is completely it's own fragment and so for the majority of the project, this was coupled with the nav bar preference. This change makes it so the nav bar can live by itself as its own standalone preference. Initially, when trying to implement this, the main issue was that the old card browser was heavily coupled with the activity and the toolbar on top was actually from the activity. This meant that when I tried to integrate it with the nav bar, the card browser toolbar would leak into the other destinations as well since we had one host activity that was now conflicting.
+To solve this issue, I decided to create a new embedded layout that will take the toolbar from the card browser activity and decouple it so that the card browser fragment can provide the toolbar. This essentially solves our leakage issue.
+
+<img width="1080" height="1500" alt="Screenshot_20260815_232614" src="https://github.com/user-attachments/assets/69608f3d-a3f1-41ae-bd0d-14a264d8366e" />
+
 
 ---
 
