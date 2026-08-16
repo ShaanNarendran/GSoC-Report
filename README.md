@@ -22,7 +22,7 @@
 - David Allison
 - [Ashish Yadav]([https://www.linkedin.com/in/criticalay/])
 
-# **Org Admins**
+# Org Admins
 - David Allison
 - Mike Hardy
 
