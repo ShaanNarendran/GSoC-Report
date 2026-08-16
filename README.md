@@ -46,28 +46,28 @@ The bottom navigation bar redesigns the entire navigation of the app to allow us
 **Before:**
 
 <p align="center">
-  <img width="550" height="950" alt="Screenshot_20260815_232718" src="https://github.com/user-attachments/assets/5b462609-1ac5-46ce-a7c3-d8f07535b3ed" />
-  <img width="550" height="950" alt="Screenshot_20260815_232742" src="https://github.com/user-attachments/assets/e899a343-cdf9-4f14-9842-7238f4b366e3" />
+  <img width="250" alt="Screenshot_20260815_232718" src="https://github.com/user-attachments/assets/5b462609-1ac5-46ce-a7c3-d8f07535b3ed" />
+  <img width="250" alt="Screenshot_20260815_232742" src="https://github.com/user-attachments/assets/e899a343-cdf9-4f14-9842-7238f4b366e3" />
 </p>
 
 **After:**
 
 <p align="center">
-  <img width="550" height="950" alt="Screenshot_20260816_125658" src="https://github.com/user-attachments/assets/897d6dad-027f-47cd-bd32-c74a97a3942d" />
+  <img width="250" alt="Screenshot_20260816_125658" src="https://github.com/user-attachments/assets/897d6dad-027f-47cd-bd32-c74a97a3942d" />
 </p>
 
 ### 2. **Added the new more destination**
 
 There was no place to see all the various things you could do to support the app and also tweak your account and the more destination was the perfect place to solve this problem. This destination is also a fragment and the design was set up for this after a lot of back and forth from users of the app.
 <p align="center">
-<img width="550" height="950" alt="Screenshot_20260815_232643" src="https://github.com/user-attachments/assets/79f927a9-f3d4-4ec5-8f05-2ab271d149ac" />
+  <img width="250" alt="Screenshot_20260815_232643" src="https://github.com/user-attachments/assets/79f927a9-f3d4-4ec5-8f05-2ab271d149ac" />
 </p>
 
 ### 3. **Hierarchy Lines**
 
 The current way the deck picker screen shows sundecks is not user-friendly due to there being no indication apart from spacing to tell you what is a child of a deck. To help this, we decided to bring in hierarchy lines so that users can easily tell what deck is a child of what deck. The development of this was the most taxing from a design perspective, many users had different ideas of what they wanted the lines to look like. The second challenging part about this particular feature was the performance, in collections with thousands of decks where we have to draw tens or even hundreds of lines instantly, the app can face severe performance issues. I initially had a very high complexity of around O(VN) for sibling searches but the current lookahead logic using bit masking reduced that to O(N) + O(V).
 <p align="center">
-  <img width="550" height="950" alt="Screenshot_20260816_125658" src="https://github.com/user-attachments/assets/897d6dad-027f-47cd-bd32-c74a97a3942d" />
+  <img width="250" alt="Screenshot_20260816_125658" src="https://github.com/user-attachments/assets/897d6dad-027f-47cd-bd32-c74a97a3942d" />
 </p>
 
 ## 4. **Screenshot Tests**
@@ -79,7 +79,7 @@ One of the main testing implementations I did was with regard to the deck picker
 This was my last PR for the project and it basically allows the nav bar to work with the card browser that is live for everyone right now. We have a new search view as a developer preference that is completely it's own fragment and so for the majority of the project, this was coupled with the nav bar preference. This change makes it so the nav bar can live by itself as its own standalone preference. Initially, when trying to implement this, the main issue was that the old card browser was heavily coupled with the activity and the toolbar on top was actually from the activity. This meant that when I tried to integrate it with the nav bar, the card browser toolbar would leak into the other destinations as well since we had one host activity that was now conflicting.
 To solve this issue, I decided to create a new embedded layout that will take the toolbar from the card browser activity and decouple it so that the card browser fragment can provide the toolbar. This essentially solves our leakage issue.
 <p align="center">
-<img width="550" height="950" alt="Screenshot_20260815_232614" src="https://github.com/user-attachments/assets/69608f3d-a3f1-41ae-bd0d-14a264d8366e" />
+  <img width="250" alt="Screenshot_20260815_232614" src="https://github.com/user-attachments/assets/69608f3d-a3f1-41ae-bd0d-14a264d8366e" />
 </p>
 
 ---
