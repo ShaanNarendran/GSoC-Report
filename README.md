@@ -59,9 +59,9 @@ The bottom navigation bar redesigns the entire navigation of the app to allow us
 ### 2. **Added the new more destination**
 
 There was no place to see all the various things you could do to support the app and also tweak your account and the more destination was the perfect place to solve this problem. This destination is also a fragment and the design was set up for this after a lot of back and forth from users of the app.
-
+<p align="center">
 <img width="550" height="950" alt="Screenshot_20260815_232643" src="https://github.com/user-attachments/assets/79f927a9-f3d4-4ec5-8f05-2ab271d149ac" />
-
+</p>
 
 ### 3. **Hierarchy Lines**
 
@@ -78,9 +78,9 @@ One of the main testing implementations I did was with regard to the deck picker
 
 This was my last PR for the project and it basically allows the nav bar to work with the card browser that is live for everyone right now. We have a new search view as a developer preference that is completely it's own fragment and so for the majority of the project, this was coupled with the nav bar preference. This change makes it so the nav bar can live by itself as its own standalone preference. Initially, when trying to implement this, the main issue was that the old card browser was heavily coupled with the activity and the toolbar on top was actually from the activity. This meant that when I tried to integrate it with the nav bar, the card browser toolbar would leak into the other destinations as well since we had one host activity that was now conflicting.
 To solve this issue, I decided to create a new embedded layout that will take the toolbar from the card browser activity and decouple it so that the card browser fragment can provide the toolbar. This essentially solves our leakage issue.
-
+<p align="center">
 <img width="550" height="950" alt="Screenshot_20260815_232614" src="https://github.com/user-attachments/assets/69608f3d-a3f1-41ae-bd0d-14a264d8366e" />
-
+</p>
 
 ---
 
