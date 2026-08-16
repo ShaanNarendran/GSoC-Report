@@ -22,7 +22,7 @@
 - David Allison
 - [Ashish Yadav]([https://www.linkedin.com/in/criticalay/])
 
-# Org Admins
+## Org Admins
 - David Allison
 - Mike Hardy
 
@@ -70,11 +70,11 @@ The current way the deck picker screen shows sundecks is not user-friendly due t
   <img width="250" alt="Screenshot_20260816_125658" src="https://github.com/user-attachments/assets/897d6dad-027f-47cd-bd32-c74a97a3942d" />
 </p>
 
-## 4. **Screenshot Tests**
+### 4. **Screenshot Tests**
 
 One of the main testing implementations I did was with regard to the deck picker screenshot test, this was completely new to me since it was a recent adoption to the repository. The first issue I encountered here was that with my initial implementation of the test, the bottom nav pref was not being selected consistently and so I used the exact prefs key that is used by the singleton to make sure we are turning on the pref each time. The second instance was that we were not clearing the prefs after use so screenshot tests were being commented in every PR (oops..) and the way we fixed this was to use an @After annotation then reset the pref. Finally, there were several race conditions due to the way Roboelectric's looper loops through coroutines so sometimes we were skipping deck expansions when they were supposed to happen for the tests. Fixing all of this really helped me understand how to deal with race conditions and how to better write tests in general.
 
-## 5. **Embedding the Nav Bar to the legacy card browser**
+### 5. **Embedding the Nav Bar to the legacy card browser**
 
 This was my last PR for the project and it basically allows the nav bar to work with the card browser that is live for everyone right now. We have a new search view as a developer preference that is completely it's own fragment and so for the majority of the project, this was coupled with the nav bar preference. This change makes it so the nav bar can live by itself as its own standalone preference. Initially, when trying to implement this, the main issue was that the old card browser was heavily coupled with the activity and the toolbar on top was actually from the activity. This meant that when I tried to integrate it with the nav bar, the card browser toolbar would leak into the other destinations as well since we had one host activity that was now conflicting.
 To solve this issue, I decided to create a new embedded layout that will take the toolbar from the card browser activity and decouple it so that the card browser fragment can provide the toolbar. This essentially solves our leakage issue.
