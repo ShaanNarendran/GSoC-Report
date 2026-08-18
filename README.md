@@ -56,7 +56,7 @@ The bottom navigation bar redesigns the entire navigation of the app to allow us
   <img width="250" alt="Screenshot_20260816_125658" src="https://github.com/user-attachments/assets/897d6dad-027f-47cd-bd32-c74a97a3942d" />
 </p>
 
-### 2. **Added the new more destination**
+### 2. **More destination**
 
 There was no place to see all the various things you could do to support the app and also tweak your account and the more destination was the perfect place to solve this problem. This destination is also a fragment and the design was set up for this after a lot of back and forth from users of the app.
 <p align="center">
