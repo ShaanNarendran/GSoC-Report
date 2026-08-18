@@ -24,7 +24,7 @@
 
 ## Org Admins
 - [David Allison](https://github.com/david-allison)
-- [Mike Hardy](github@mikehardy.net)
+- Mike Hardy - github@mikehardy.net
 
 ---
 
