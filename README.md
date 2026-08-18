@@ -19,11 +19,11 @@
 
 ## Mentors
 - [Sanjay Sargam](https://www.linkedin.com/in/sanjaysargam/)
-- David Allison
+- [David Allison](https://github.com/david-allison)
 - [Ashish Yadav](https://www.linkedin.com/in/criticalay/)
 
 ## Org Admins
-- David Allison
+- [David Allison](https://github.com/david-allison)
 - Mike Hardy
 
 ---
